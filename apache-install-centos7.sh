@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 yum groupinstall " Development Tools"  -y
 yum install expat-devel pcre pcre-devel openssl-devel -y
 #https://github.com/apache/httpd/releases
