@@ -1,6 +1,6 @@
 #!/bin/bash
 yum groupinstall " Development Tools"  -y
-yum install expat-devel pcre pcre-devel openssl-devel -y
+yum install expat-devel pcre pcre-devel openssl-devel wget -y
 #https://github.com/apache/httpd/releases
 apache="2.4.37"
 

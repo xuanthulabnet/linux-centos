@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-yum install autoconf libtool re2c bison libxml2-devel bzip2-devel libcurl-devel libpng-devel libicu-devel gcc-c++ libmcrypt-devel libwebp-devel libjpeg-devel openssl-devel -y
+yum install autoconf libtool libmemcached-devel re2c bison libxml2-devel bzip2-devel libcurl-devel libpng-devel libicu-devel gcc-c++ libmcrypt-devel libwebp-devel libjpeg-devel openssl-devel -y
 
 #https://github.com/php/php-src/releases
 
@@ -22,13 +22,26 @@ dircodephp="php-src-php-$phpver"
 configpath="$prefix/etc"
  
 
-rm -rf dircodephp
+rm -rf $dircodephp
 
 curl -O -L https://github.com/php/php-src/archive/php-$phpver.tar.gz
 tar -zxvf php-$phpver.tar.gz
- 
 
-cd "${dircodephp}"
+extdir=$dircodephp/ext
+
+cd "${extdir}"
+#EXT MEMCACHED memcached 3.0.4
+pecl download memcached
+tar -xvf memcached-3.0.4.tgz
+mv memcached-3.0.4 memcached
+
+
+
+cd ..
+#cd "${dircodephp}"
+
+
+
 
 ./buildconf --force
 
@@ -52,6 +65,8 @@ cd "${dircodephp}"
 	--enable-exif \
 	--enable-bcmath \
 	--enable-calendar \
+	--enable-memcached \
+	--with-libmemcached-dir=/usr \
 	--enable-sockets \
 	--enable-soap \
 	--enable-mbstring \
@@ -74,7 +89,7 @@ make install
 cp php.ini-development $configpath/php.ini
 
 echo "#PHP PATH
-export PHP_HOME=/usr/local/php
+export PHP_HOME=$prefix
 export PATH=\$PHP_HOME/bin:\$PATH" >> /etc/profile
 
 source /etc/profile
@@ -137,9 +152,3 @@ service httpd restart
 echo "
 SetHandler \"proxy:fcgi://127.0.0.1:9000\"
 " >> /etc/httpd/conf/httpd.conf
-
-
-
-
-
-
