@@ -12,6 +12,6 @@ passuser=${passuser:-passuser}
  
 mysql -u root -p -e "CREATE USER '$user'@'localhost' IDENTIFIED WITH mysql_native_password BY '$passuser';
 CREATE DATABASE $user;
-GRANT ALL ON mydb.* TO '$user'@'localhost';"
+GRANT ALL PRIVILEGES ON mydb.* TO '$user'@'localhost';"
  
  
