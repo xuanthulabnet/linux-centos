@@ -1,7 +1,8 @@
 #!/bin/bash
-
-
-yum install autoconf libtool libmemcached-devel re2c bison libxml2-devel bzip2-devel libcurl-devel libpng-devel libicu-devel gcc-c++ libmcrypt-devel libwebp-devel libjpeg-devel openssl-devel -y
+# BUILD PHP - FPM FROM SOURCE
+yum install autoconf libtool libmemcached-devel re2c bison /
+    libxml2-devel bzip2-devel libcurl-devel libpng-devel /
+	libicu-devel gcc-c++ libmcrypt-devel libwebp-devel libjpeg-devel openssl-devel -y
 
 #https://github.com/php/php-src/releases
 

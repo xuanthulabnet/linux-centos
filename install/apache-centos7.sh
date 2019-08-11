@@ -1,4 +1,10 @@
 #!/bin/bash
+# OS: CENTOS 7
+# BUILD APACHE 2.4.X FROM SOURCE 
+# CONFIG APACHE DOCS: https://xuanthulab.net/apache/
+
+
+yum install update -y
 yum groupinstall " Development Tools"  -y
 yum install expat-devel pcre pcre-devel openssl-devel wget -y
 #https://github.com/apache/httpd/releases
@@ -125,6 +131,7 @@ cd "${dirapache}"
 make
 make install
 
+# CREATE SYSTEMD SERVICE
 cat <<EOF >/etc/systemd/system/httpd.service
 [Unit]
 Description=The Apache HTTP Server
@@ -150,6 +157,3 @@ systemctl enable httpd
 firewall-cmd --add-service=http --permanent
 firewall-cmd --add-service=https --permanent
 firewall-cmd --reload
-
-
-
