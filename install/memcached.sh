@@ -10,7 +10,8 @@ echo "PORT=\"11211\"
 USER=\"memcached\"
 MAXCONN=\"4096\"
 CACHESIZE=\"512\"
-OPTIONS=\"-l 127.0.0.1 -U 0\"
+OPTIONS=\"\"
+#OPTIONS=\"-l 127.0.0.1 -U 0\"
 #OR CHANGE TO YOUR IP
 " > /etc/sysconfig/memcached
 
@@ -20,3 +21,9 @@ echo "vi /etc/sysconfig/memcached    ----------- to update"
 
 
 service memcached restart
+
+# PORT="11211"
+# USER="memcached"
+# MAXCONN="8024"
+# CACHESIZE="4096"
+# OPTIONS=""
