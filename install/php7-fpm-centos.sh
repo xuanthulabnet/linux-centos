@@ -13,8 +13,8 @@ user=${user:-apache}
 read -p "Group run php-fpm (apache): " group
 group=${group:-apache}
 
-read -p "PHP Version (7.2.12): " phpver
-phpver=${phpver:-7.2.12}
+read -p "PHP Version (7.3.11): " phpver
+phpver=${phpver:-7.3.11}
 
 read -p "PHP PATH (/usr/local/php7): " prefix
 prefix=${prefix:-/usr/local/php7}
@@ -33,8 +33,8 @@ extdir=$dircodephp/ext
 cd "${extdir}"
 #EXT MEMCACHED memcached 3.0.4
 pecl download memcached
-tar -xvf memcached-3.0.4.tgz
-mv memcached-3.0.4 memcached
+tar -xvf memcached-3.1.4.tgz
+mv memcached-3.1.4 memcached
 
 
 
@@ -67,6 +67,7 @@ cd ..
 	--enable-bcmath \
 	--enable-calendar \
 	--enable-memcached \
+	--enable-redis \
 	--with-libmemcached-dir=/usr \
 	--enable-sockets \
 	--enable-soap \
