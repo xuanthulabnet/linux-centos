@@ -8,10 +8,10 @@ yum install update -y
 yum groupinstall " Development Tools"  -y
 yum install expat-devel pcre pcre-devel openssl-devel wget -y
 #https://github.com/apache/httpd/releases
-apache="2.4.37"
+apache="2.4.41"
 
 #https://github.com/apache/apr/releases
-apr="1.6.5"
+apr="1.7.0"
 
 #https://github.com/apache/apr-util/releases
 util="1.6.1"
