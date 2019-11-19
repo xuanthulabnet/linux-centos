@@ -11,3 +11,4 @@ Vagrant.configure(2) do |config|                # Bắt đầu khai báo máy �
   end                                           # hết cấu hình provider
 
 end                                             #  hết cấu hình tạo máy ảo
+
