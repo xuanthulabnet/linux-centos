@@ -7,7 +7,7 @@ Vagrant.configure(2) do |config|                # Bắt đầu khai báo máy �
 
   config.vm.network "public_network"
   config.vm.synced_folder '.', '/var/www/public/' # Chia sẻ thư mục máy host và máy ảo
-  config.vm.provider "Hyper-V" do |vb|          # Máy ảo dùng nền tảng virtualbox, với các cấu hình bổ sung thêm cho provider
+  config.vm.provider "Hyper-V" do |vb|          # Máy ảo dùng nền tảng HyperV, với các cấu hình bổ sung thêm cho provider
      vb.name = "may-ao-01"                      # đặt tên máy ảo tạo ra
      vb.cpus = 2                                # cấp 2 nhân CPU
      vb.memory = "2048"                         # cấu hình dùng 2GB bộ nhớ
