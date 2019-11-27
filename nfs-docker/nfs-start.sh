@@ -12,3 +12,4 @@ rpc.statd -d
 rpc.nfsd -G 10 -N 2 -V 3
 rpc.mountd -N 2 -V 3 --foreground -d all
 # -d all
+
