@@ -1,0 +1,38 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|                
+  config.vm.box = 'centos/7'                    
+
+  config.vm.network "private_network", ip: "192.168.1.104"
+  config.vm.hostname = "master.xtl"         
+
+  config.vm.provider "virtualbox" do |vb|
+     vb.name = "centos-elk"              
+     vb.cpus = 2                         
+     vb.memory = "2048"                  
+  end                                    
+
+  # config.vm.synced_folder '.', '/script/', nfs: true
+
+
+  # config.vm.provision "shell", path: "./install_elastic.sh"
+  # config.vm.provision "shell", path: "./install_kibana.sh"
+
+config.vm.provision "shell", inline: <<-SHELL
+
+    # cài đặt Apache, PHP
+    yum update -y
+
+    # Tat SELinux cua CentOS
+    setenforce 0
+    sed -i --follow-symlinks 's/^SELINUX=enforcing/SELINUX=disabled/' /etc/sysconfig/selinux
+    
+    # Đổi root password thành 123 và cho phép login SSH qua root
+    echo "123" | passwd --stdin root
+    sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+    systemctl reload sshd
+ 
+SHELL
+
+end
