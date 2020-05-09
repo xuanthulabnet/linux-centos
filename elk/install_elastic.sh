@@ -26,3 +26,4 @@ systemctl start elasticsearch.service
 firewall-cmd --permanent --add-port=9200/tcp
 firewall-cmd --permanent --add-port=9300/tcp
 firewall-cmd --reload
+
