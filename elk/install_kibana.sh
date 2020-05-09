@@ -10,3 +10,4 @@ systemctl start kibana
 firewall-cmd --permanent --add-port=5601/tcp
 firewall-cmd --permanent --add-port=5601/tcp
 firewall-cmd --reload
+

@@ -2,10 +2,10 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|                
-  config.vm.box = 'centos/7'                    
+  config.vm.box = 'bento/ubuntu-18.04'                    
 
-  config.vm.network "private_network", ip: "192.168.1.105"
-  config.vm.hostname = "elk.xtl"         
+  config.vm.network "private_network", ip: "192.168.10.106"
+  config.vm.hostname = "elk1.xtl"         
 
   config.vm.provider "virtualbox" do |vb|
      vb.name = "centos-elk-s1"              
@@ -21,17 +21,7 @@ Vagrant.configure(2) do |config|
 
 config.vm.provision "shell", inline: <<-SHELL
 
-    # cài đặt Apache, PHP
-    yum update -y
-
-    # Tat SELinux cua CentOS
-    setenforce 0
-    sed -i --follow-symlinks 's/^SELINUX=enforcing/SELINUX=disabled/' /etc/sysconfig/selinux
-    
-    # Đổi root password thành 123 và cho phép login SSH qua root
-    echo "123" | passwd --stdin root
-    sed -i 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-    systemctl reload sshd
+   sudo apt update -y
  
 SHELL
 

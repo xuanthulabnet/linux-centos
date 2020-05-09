@@ -3,6 +3,7 @@ yum install logstash -y
 
 echo 'input {
   beats {
+    host => "0.0.0.0"
     port => 5044
   }
 }' > /etc/logstash/conf.d/02-beats-input.conf
@@ -65,6 +66,18 @@ systemctl start logstash
 
 
 
+
+
+echo '[elasticsearch-7.x]
+name=Elasticsearch repository for 7.x packages
+baseurl=https://artifacts.elastic.co/packages/7.x/yum
+gpgcheck=1
+gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+enabled=1
+autorefresh=1
+type=rpm-md
+' > /etc/yum.repos.d/elasticsearch.repo
+
 yum install filebeat -y
 
 # Edit /etc/filebeat/filebeat.yml
@@ -72,15 +85,28 @@ yum install filebeat -y
 # remove comment output.logstash
 
 # Enable:
-filebeat modules enable system
 filebeat modules list
+filebeat modules enable system
 
 # load the index template into Elasticsearch
 echo '
 setup.ilm.overwrite: true
 ' >> vi /etc/filebeat/filebeat.yml
 
-filebeat setup --template -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
+# filebeat setup --template -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
 
 systemctl start filebeat
 systemctl enable filebeat
+
+
+#Ubunntu
+sudo apt update
+sudo apt upgrade
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+sudo apt-get install apt-transport-https
+sudo apt update
+sudo apt install filebeat
+sudo filebeat modules enable system
+sudo systemctl start filebeat
+sudo systemctl enable filebeat
