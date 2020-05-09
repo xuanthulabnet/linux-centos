@@ -62,11 +62,14 @@ systemctl enable logstash
 systemctl start logstash
 
 
+
+
+
 yum install filebeat -y
 
 # Edit /etc/filebeat/filebeat.yml
 # comment output.elasticsearch
-# remote comment output.logstash
+# remove comment output.logstash
 
 # Enable:
 filebeat modules enable system
