@@ -2,13 +2,13 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|                
-  config.vm.box = 'bento/ubuntu-18.04'                    
+  config.vm.box = 'bento/ubuntu-18.04'    
 
-  config.vm.network "private_network", ip: "192.168.10.106"
-  config.vm.hostname = "elk1.xtl"         
+  config.vm.network "private_network", ip: "192.168.100.11"
+  config.vm.hostname = "ubuntu-client"         
 
   config.vm.provider "virtualbox" do |vb|
-     vb.name = "centos-elk-s1"              
+     vb.name = "ubuntu-client"              
      vb.cpus = 2                         
      vb.memory = "2048"                  
   end                                    
