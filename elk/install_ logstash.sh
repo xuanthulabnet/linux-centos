@@ -91,12 +91,12 @@ filebeat modules enable system
 # load the index template into Elasticsearch
 echo '
 setup.ilm.overwrite: true
-' >> vi /etc/filebeat/filebeat.yml
+' >> /etc/filebeat/filebeat.yml
 
 # filebeat setup --template -E output.logstash.enabled=false -E 'output.elasticsearch.hosts=["localhost:9200"]'
 
-systemctl start filebeat
-systemctl enable filebeat
+  systemctl start filebeat
+  systemctl enable filebeat
 
 
 #Ubunntu
