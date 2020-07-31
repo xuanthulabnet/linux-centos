@@ -60,7 +60,7 @@ cd ..
 	--with-mhash \
 	--with-pear \
 	--with-zlib \
-	--with-zlib-dir=/usr/local/lib \
+	--with-zlib-dir=/usr/include \
 	--with-png-dir=/usr/lib64 \
 	--with-jpeg-dir=/usr/lib64 \
 	--enable-zip \
