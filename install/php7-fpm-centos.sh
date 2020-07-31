@@ -15,7 +15,7 @@ read -p "Group run php-fpm (apache): " group
 group=${group:-apache}
 
 read -p "PHP Version (php-7.4.8): " phpver
-phpver=${phpver:-php-7.4.8}
+phpver=${phpver:-7.4.8}
 
 read -p "PHP PATH (/usr/local/php7): " prefix
 prefix=${prefix:-/usr/local/php7}
