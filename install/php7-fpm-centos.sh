@@ -6,15 +6,16 @@ yum install autoconf libtool libmemcached-devel re2c bison /
 
 #https://github.com/php/php-src/releases
 
-
+# example: xuanthulab
 read -p "User run php-fpm (apache): " user
 user=${user:-apache}
 
+# example: xuanthulab
 read -p "Group run php-fpm (apache): " group
 group=${group:-apache}
 
-read -p "PHP Version (7.3.11): " phpver
-phpver=${phpver:-7.3.11}
+read -p "PHP Version (php-7.4.8): " phpver
+phpver=${phpver:-php-7.4.8}
 
 read -p "PHP PATH (/usr/local/php7): " prefix
 prefix=${prefix:-/usr/local/php7}
@@ -33,8 +34,8 @@ extdir=$dircodephp/ext
 cd "${extdir}"
 #EXT MEMCACHED memcached 3.0.4
 pecl download memcached
-tar -xvf memcached-3.1.4.tgz
-mv memcached-3.1.4 memcached
+tar -xvf memcached-3.1.5.tgz
+mv memcached-3.1.5 memcached
 
 
 
