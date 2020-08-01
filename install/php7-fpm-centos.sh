@@ -1,8 +1,11 @@
 #!/bin/bash
 # BUILD PHP - FPM FROM SOURCE
 yum install autoconf libtool libmemcached-devel re2c bison sqlite-devel oniguruma-devel \
-    libxml2-devel bzip2-devel libcurl-devel libpng-devel \
+    libxml2-devel bzip2-devel libcurl-devel libpng-devel libzip-devel zlib \
 	libicu-devel gcc-c++ libmcrypt-devel libwebp-devel libjpeg-devel openssl-devel -y
+	
+
+
 
 #https://github.com/php/php-src/releases
 
@@ -47,43 +50,45 @@ cd ..
 
 ./buildconf --force
 
+
 ./configure \
-	--prefix=$prefix \
-	--exec-prefix=$prefix \
-	--with-gd \
-	--with-gettext \
-	--with-libxml-dir=/usr/local/lib \
-	--with-config-file-path=$configpath \
-	--with-apxs2=/usr/bin/apxs \
-	--with-kerberos \
-	--with-openssl \
-	--with-mhash \
-	--with-pear \
-	--with-zlib \
-	--with-zlib-dir=/usr/include \
-	--with-png-dir=/usr/lib64 \
-	--with-jpeg-dir=/usr/lib64 \
-	--enable-zip \
-	--enable-exif \
-	--enable-bcmath \
-	--enable-calendar \
-	--enable-memcached \
-	--enable-redis \
-	--with-libmemcached-dir=/usr \
-	--enable-sockets \
-	--enable-soap \
-	--enable-mbstring \
-	--enable-intl \
-	--enable-fpm \
-	--enable-short-tags \
-	--enable-opcache \
-	--with-pcre-regex \
-	--with-pcre-jit \
-	--with-bz2 \
-	--with-curl \
-	--with-mysqli \
-	--enable-pcntl \
-	--with-pdo-mysql
+        --prefix=$prefix \
+        --exec-prefix=$prefix \
+        --enable-gd \
+        --with-gettext \
+        --with-libxml-dir=/usr/local/lib \
+        --with-config-file-path=$configpath \
+        --with-apxs2=/usr/bin/apxs \
+        --with-kerberos \
+        --with-openssl \
+        --with-mhash \
+        --with-pear \
+        --with-zlib \
+        --with-jpeg \
+        --with-webp \
+        --with-png-dir=/usr/lib64 \
+        --with-jpeg-dir=/usr/lib64 \
+        --enable-zip \
+        --enable-exif \
+        --enable-bcmath \
+        --enable-calendar \
+        --enable-memcached \
+        --with-libmemcached-dir=/usr \
+        --enable-sockets \
+        --enable-soap \
+        --enable-mbstring \
+        --enable-intl \
+        --enable-fpm \
+        --enable-short-tags \
+        --enable-opcache \
+        --with-pcre-regex \
+        --with-pcre-jit \
+        --with-bz2 \
+        --with-curl \
+        --with-mysqli \
+        --enable-pcntl \
+        --with-pdo-mysql
+
 	
 make clean
 make
