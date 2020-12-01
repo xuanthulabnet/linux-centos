@@ -64,10 +64,6 @@ systemctl start logstash
 
 
 
-
-
-
-
 echo '[elasticsearch-7.x]
 name=Elasticsearch repository for 7.x packages
 baseurl=https://artifacts.elastic.co/packages/7.x/yum
