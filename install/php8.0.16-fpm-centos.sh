@@ -150,6 +150,7 @@ request_slowlog_timeout = 10s
 slowlog = $prefix/var/log/www.log.slow
 EOF
 
+# note -> ProtectSystem=false
 cp ./sapi/fpm/php-fpm.service /etc/systemd/system/
 chmod +x /etc/systemd/system/php-fpm.service
 systemctl enable php-fpm.service
