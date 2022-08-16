@@ -27,3 +27,14 @@ service memcached restart
 # MAXCONN="8024"
 # CACHESIZE="4096"
 # OPTIONS=""
+
+# Neu su  dung socket /var/run/memcached/memcached.sock
+# PORT="11211" 
+# USER="memcached" 
+# MAXCONN="6024" 
+# CACHESIZE="3640"
+# OPTIONS="-s '/var/run/memcached/memcached.sock' -a 0766"
+
+# Chu y thu muc: /var/run/memcached/
+# mkdir /var/run/memcached/
+# chmod 777 /var/run/memcached/

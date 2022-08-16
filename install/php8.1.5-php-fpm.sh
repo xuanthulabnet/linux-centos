@@ -129,7 +129,7 @@ EOF
 
 cat <<EOF >$configpath/php-fpm.d/www.conf
 [www]
-listen = /usr/local/php/var/run/www-php-fpm.sock
+listen = /usr/local/php/var/run/php-fpm.sock
 ;listen = 127.0.0.1:9000
 listen.backlog = -1
 listen.allowed_clients = 127.0.0.1
@@ -185,7 +185,18 @@ systemctl start php-fpm.service
 # ***********  install ZIP PHP Extension
 # yum install pcre-devel gcc zlib zlib-devel
 # pecl install zip
+
 # error : find /usr/local -iname 'zipconf.h'
+# Delete the old version first
+
+# yum remove -y libzip
+
+# Download, compile and install
+# wget https://nih.at/libzip/libzip-1.2.0.tar.gz
+# tar -zxvf libzip-1.2.0.tar.gz
+# cd libzip-1.2.0
+# ./configure
+# make && make install
 #         cp /usr/local/lib/libzip/include/zipconf.h /usr/local/include/zipconf.h
  
 
