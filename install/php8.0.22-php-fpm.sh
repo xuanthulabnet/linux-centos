@@ -17,7 +17,7 @@ user=${user:-nginx}
 read -p "Group run php-fpm (nginx): " group
 group=${group:-nginx}
 
-read -p "PHP Version (php-8.1.5): " phpver
+read -p "PHP Version (php-8.0.22): " phpver
 phpver=${phpver:-8.0.22}
 
 
@@ -125,8 +125,6 @@ error_log = log/php-fpm.log
 ;;;;;;;;;;;;;;;;;;;;
 include=$configpath/php-fpm.d/*.conf
 EOF
-
-8.0.22
 
 cat <<EOF >$configpath/php-fpm.d/www.conf
 [www]
