@@ -144,6 +144,7 @@ pm.max_children = 3000
 pm.start_servers = 32
 pm.min_spare_servers = 16
 pm.max_spare_servers = 32
+pm.max_requests = 1000
 pm.status_path = /status
 ping.path = /ping
 ping.response = pong
