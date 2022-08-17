@@ -216,16 +216,10 @@ systemctl start php-fpm.service
 
 
 # zend_extension=opcache.so;
-# opcache.interned_strings_buffer=4
-# opcache.max_accelerated_files=2000
-# opcache.memory_consumption=64
-# opcache.revalidate_freq=2
-# opcache.fast_shutdown=0
-# opcache.enable_cli=0
-# opcache.interned_strings_buffer=4
-# opcache.max_accelerated_files=2000
-# opcache.memory_consumption=64
-# opcache.revalidate_freq=2
+# opcache.interned_strings_buffer=32
+# opcache.max_accelerated_files=32531
+# opcache.memory_consumption=240
+# opcache.revalidate_freq=300
 # opcache.fast_shutdown=0
 # opcache.enable_cli=0
 

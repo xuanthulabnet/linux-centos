@@ -140,17 +140,17 @@ listen.mode = 0660
 user = $user
 group = $group
 pm = dynamic
-pm.max_children = 10
-pm.start_servers = 2
-pm.min_spare_servers = 1
-pm.max_spare_servers = 6
+pm.max_children = 3000
+pm.start_servers = 32
+pm.min_spare_servers = 16
+pm.max_spare_servers = 32
 pm.status_path = /status
 ping.path = /ping
 ping.response = pong
 request_terminate_timeout = 100
 request_slowlog_timeout = 10s
 slowlog = $prefix/var/log/www.log.slow
-EOF
+EOF 
 
 touch /usr/local/php/var/run/www-php-fpm.sock
 chmod 777 /usr/local/php/var/run/www-php-fpm.sock
