@@ -1,1 +1,1 @@
-Note for Linx - CentOS
+Note : Linux - CentOS 
