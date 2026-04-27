@@ -15,4 +15,13 @@ Cau Hinh
 user = nginx
 group = nginx
 listen = /usr/local/php/var/run/php-fpm.sock
+
+
+posix
+redis
+
+
+
+soap
+zip
 ```
