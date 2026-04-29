@@ -108,7 +108,7 @@ cp ./sapi/fpm/init.d.php-fpm /usr/local/bin/php-fpm
 chmod +x /usr/local/bin/php-fpm
 
 cat <<EOF >$configpath/php-fpm.conf
-;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;; XT
 ; Global Options ;
 ;;;;;;;;;;;;;;;;;;
 [global]

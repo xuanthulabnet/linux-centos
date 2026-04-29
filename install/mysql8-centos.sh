@@ -18,3 +18,7 @@ grep 'temporary password' /var/log/mysqld.log
 
 mysql_secure_installation
 
+
+
+
+
