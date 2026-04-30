@@ -21,7 +21,7 @@ sudo systemctl start php-fpm
 
  /etc/php-fpm.d/www.conf
 [www]
-listen = /run/php-fpm/www.sock
+listen = run/php-fpm/www.sock/
 ;listen = 127.0.0.1:9000
 listen.backlog = -1
 listen.allowed_clients = 127.0.0.1

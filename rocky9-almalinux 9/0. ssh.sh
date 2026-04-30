@@ -32,3 +32,9 @@ echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 
 # don cache truoc khi cai
 sudo dnf clean all
+
+sudo nano /etc/hosts
+
+    sudo hostnamectl set-hostname xtl
+    127.0.0.1   xtl localhost
+

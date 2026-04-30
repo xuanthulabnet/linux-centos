@@ -17,6 +17,9 @@ sudo firewall-cmd --reload
 #    /usr/share/nginx/html
 
 
+
+
+
 # ##### TEST SSL HOST
 #     sudo mkdir -p /etc/nginx/ssl
 #     cd /etc/nginx/ssl
