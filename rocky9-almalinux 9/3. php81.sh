@@ -54,6 +54,8 @@ dnf install php-pear php-devel gcc make
 
 pecl install memcached
 pecl install memcache
+sudo dnf install php-pecl-memcached -y
+
 dnf install -y php-soap
 dnf install php-bcmath
 pecl install zip
@@ -83,6 +85,8 @@ opcache.enable_cli=0
 expose_php=Off
 date.timezone=Asia/Ho_Chi_Minh
 short_open_tag = On
+
+extension=memcached.so
 
 
 
