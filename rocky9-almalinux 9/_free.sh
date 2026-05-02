@@ -13,6 +13,9 @@ docker system prune -a -f
 # MySQL 
 du -h /var/lib/mysql | sort -rh | head
 
+# Chay SQL xoa  Binary log
+RESET MASTER;
+
 #Tim file dung luong lon
 find / -type f -size +100M 2>/dev/null
 
